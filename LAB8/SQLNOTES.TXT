@@ -1,0 +1,34 @@
+000100200325     SQL COMMUNICATIONS AREA
+000200200325
+000300200325         SQLCODE
+000400200325          < 0 = ERROR
+000500200325            0 = SUCCESSFUL EXECUTION (MAY HAVE A WARNING)
+000600200325          > 0 = SUCCESSFUL EXECUTION WITH A WARNING
+000700200325          = 100 row not found
+000800200325   SQLWRN
+000900200325            SQLWN0   set to "W" if any other SQLWN1- SQLWNA set to "W"
+001000200325            SQLWN1   Character String value was truncated on retrieval
+001100200325            SQLWN2   Some of the values passed to a column function were null
+001200200325            SQLWN3   Number of values retrieved from database exceeds number of host variables
+001300200325            SQLWN4   Update or Delete does not use a Where clause and will affect all rows of table
+001400200325            ..
+001500200325            SQLWN6   The result of a date calculation adjusted to avoid impossible date. Feb 31
+001600200325            ..
+001700200325            SQLWNA
+001800200325
+001900200325               SQLSTATE
+002000200325
+002100200325                   00000   - SUCCESSFUL EXECTUTION OF SQL STATEMENT
+002200200325                   02000   - NOT FOUND
+002300200325                   01???   - WARNING
+002400200325
+002500200325                       SELECT;
+002600200325                         WHEN SQLState = '00000';
+002700200325                           SQLSUCCESS = *ON;
+002800200325                         WHEN SQLState = '02000';
+002900200325                           NOTFOUND = *ON;
+003000200325                         WHEN %Subst(SQLState : 1 : 2 ) = '01';
+003100200325                           EXSR   SQLWARNING;
+003200200325                         OTHER;
+003300200325                           EXSR   SQLERROR;
+003400200325                       ENDSL;

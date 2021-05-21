@@ -1,0 +1,68 @@
+000001210309     A          R TITLE
+000002210309     A                                  2  4DATE
+000003210309     A                                      EDTCDE(Y)
+000004210309     A                                  2 13TIME
+000005210309     A                                  2 49'Weekly Payroll Report'
+000006210309     A                                  2 90'Page:'
+000007210309     A                                  2 95PAGNBR
+000010210309     A                                  3  4'Name: Lara Fahmi'
+000011210309
+000027210309     A          R COLHDG                    SPACEB(1)
+000028210309     A                                     8'Employee'
+000029210309     A                                    21'Work'
+000030210309     A                                    31'Pay'
+000031210309     A                                    41'Hourly'
+000032210309     A                                    53'Hours'
+000034210309     A                                    67'Regular'
+000035210309     A                                    82'Overtime'
+000036210309     A                                    98'Total'
+000037210309     A                                     8'Number'
+000038210309     A                                      SPACEB(1)
+000039210309     A                                    21'Shift'
+000040210309     A                                    31'Class'
+000041210309     A                                    41'Rate'
+000042210309     A                                    53'Worked'
+000043210309     A                                    67'Pay'
+000044210309     A                                    82'Pay'
+000045210309     A                                    98'Pay'
+000048210309
+000049210309     A          R EMPDETAIL                 SPACEB(1)
+000051210309     A            EMPNUM    R    9S 0      8
+000052210309     A                                      REFFLD(SHIFTWEEK/EMPNUM SENECAPAY/S-
+000053210309     A                                      HIFTWEEK)
+000054210309     A                                      EDTWRD('0   -   -   -')
+000055210309
+000056210309     A            WORKSHIFT R    1A       23REFFLD(SHIFTWEEK/WORKSHIFT +
+000057210309     A                                      SENECAPAY/SHIFTWEEK)
+000058210309
+000060210309     A            PAYCLASS  R             31REFFLD(SHIFTWEEK/PAYCLASS +
+000061210309     A                                      SENECAPAY/SHIFTWEEK)
+000062210309
+000063210309     A            HOURLYRATE     5  2     41EDTCDE(1)
+000064210309
+000065210309     A            HRSWORKED R             53REFFLD(SHIFTWEEK/HRSWORKED +
+000066210309     A                                      SENECAPAY/SHIFTWEEK)
+000067210309
+000068210309     A            REGULARPAY     7  2     66EDTCDE(1)
+000069210309
+000070210311     A            OVERPAY        7  2     82EDTCDE(2)
+000071210309
+000072210309     A            WEEKLYPAY      7  2     97EDTCDE(1)
+000073210309
+000074210309
+000075210309
+000076210309     A          R TOTALS                    SPACEB(3)
+000078210309     A                                    59'Totals:'
+000079210309     A            TOTREGPAY      9  2     73EDTCDE(1)
+000080210309     A            TOTOVTPAY      9  2     91EDTCDE(1)
+000081210309     A            TOTEMPPAY      9  2    108EDTCDE(1)
+000100      
+000101210309     A*%%RS+<record-sequences>
+000102210309     A*%%RS+ <sequence name="Untitled">
+000103210309     A*%%RS+  <device type="printer" width="132" height="66" />
+000104210309     A*%%RS+  <record-write record-format="TITLE" />
+000105210309     A*%%RS+  <record-write record-format="COLHDG" />
+000106210309     A*%%RS+  <record-write record-format="EMPDETAIL" />
+000107210309     A*%%RS+  <record-write record-format="TOTALS" />
+000108210309     A*%%RS+ </sequence>
+000109210309     A*%%RS </record-sequences>

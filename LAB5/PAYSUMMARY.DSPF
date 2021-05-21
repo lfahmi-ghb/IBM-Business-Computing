@@ -1,0 +1,30 @@
+000001210309     A          R RECORD1
+000002210420     A                                  3  3'Lara Fahmi'
+000003210309     A                                  2 19'S E N E C A  Payroll Program Compl-
+000004210309     A                                      eted'
+000005210309     A                                  2 67DATE
+000006210309     A                                      EDTCDE(Y)
+000007210309     A                                  3 67TIME
+000008210309     A                                  5 10'Rates:'
+000009210309     A                                  7 22'Day Hours:'
+000012210309     A            DAYHRS    R        O  7 43REFFLD(SHIFTRATES/DAYHRS +
+000013210309     A                                      SENECAPAY/SHIFTRATES)
+000014210309     A                                      EDTCDE(1)
+000015210309     A                                  8 22'Afternoon Hours:'
+000016210309     A            AFTHRS    R        O  8 43REFFLD(SHIFTRATES/AFTHRS +
+000017210309     A                                      SENECAPAY/SHIFTRATES)
+000018210309     A                                      EDTCDE(1)
+000019210309     A                                  9 22'Night Hours: '
+000020210309     A            NIGHTHRS  R        O  9 43REFFLD(SHIFTRATES/NIGHTHRS +
+000021210309     A                                      SENECAPAY/SHIFTRATES)
+000022210309     A                                      EDTCDE(1)
+000023210309     A                                 11 11'Totals:'
+000024210309     A                                 13 22'Regular Pay: '
+000025210309     A            TOTREGPAY      9Y 2O 13 43EDTCDE(1)
+000026210309     A                                 14 22'Overtime Pay:'
+000027210309     A            TOTOVTPAY      9Y 2O 14 43EDTCDE(1)
+000028210309     A                                 15 22'Company Payout:'
+000029210309     A                                 15 41'$'
+000030210309     A            TOTEMPPAY      9Y 2O 15 43EDTCDE(1)
+000031210309     A                                  2  3USER
+000100      

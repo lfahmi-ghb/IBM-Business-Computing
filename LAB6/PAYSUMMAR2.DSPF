@@ -1,0 +1,31 @@
+000100210316     A          R RECORD1
+000101210316     A                                  3  3'Lara Fahmi'
+000102210316     A                                  2 19'S E N E C A  Payroll Program Compl-
+000103210316     A                                      eted'
+000104210316     A                                  2 67DATE
+000105210316     A                                      EDTCDE(Y)
+000106210316     A                                  3 67TIME
+000107210316     A                                  5 10'Rates:'
+000108210316     A                                  7 22'Day Hours:'
+000109210316     A            DAYHRS    R        O  7 43REFFLD(SHIFTRATES/DAYHRS +
+000110210316     A                                      SENECAPAY/SHIFTRATES)
+000111210316     A                                      EDTCDE(1)
+000112210316     A                                  8 22'Afternoon Hours:'
+000113210316     A            AFTHRS    R        O  8 43REFFLD(SHIFTRATES/AFTHRS +
+000114210316     A                                      SENECAPAY/SHIFTRATES)
+000115210316     A                                      EDTCDE(1)
+000116210316     A                                  9 22'Night Hours: '
+000117210316     A            NIGHTHRS  R        O  9 43REFFLD(SHIFTRATES/NIGHTHRS +
+000118210316     A                                      SENECAPAY/SHIFTRATES)
+000119210316     A                                      EDTCDE(1)
+000120210316                  SHIFTTYPE     30   O 11 23
+000122210316     A                                 12 11'Totals:'
+000123210316     A                                 14 22'Regular Pay: '
+000124210316     A            TOTREGPAY      9Y 2O 14 43EDTCDE(1)
+000125210316     A                                 15 22'Overtime Pay:'
+000126210316     A            TOTOVTPAY      9Y 2O 15 43EDTCDE(1)
+000127210316     A                                 16 22'uCompany Payout:'
+000128210316     A                                 16 41'$'
+000129210316     A            TOTEMPPAY      9Y 2O 16 43EDTCDE(1)
+000130210316     A                                  2  3USER
+000132210316

@@ -1,0 +1,84 @@
+000100210216             DCLF       LAB4DSPXX
+000101210223             DCL        &PRVSIGN *CHAR 13
+000102210223             DCL        &RTNUSRPRF *CHAR 10
+000103210223             DCL        &DATE *CHAR 13
+000104210223             DCL        &TIME *CHAR 10
+000105210223             DCL        &MAX *CHAR 6
+000106210223
+000107210223             DCL        &MSGQ *CHAR 10
+000108210223             DCL        &MSGQLIB *CHAR 10
+000109210223             DCL        &SYSLVL *CHAR 9
+000110210223
+000111210216             SNDRCVF
+000112210216             DoWhile    (&IN03 = '0')
+000113210216                SELECT
+000114210216                WHEN       (&OPTION = '1' *OR &OPTION = '01') DO
+000115210223                   RTVUSRPRF  MSGQ(&MSGQ) MSGQLIB(&MSGQLIB)
+000116210223                   CHGVAR     VAR(&MSGTXT1) VALUE('Signed on users message queue: ' *BCAT +
+000117210223                                &MSGQLIB *TCAT '/' *CAT &MSGQ)
+000118210223                   CHGVAR     VAR(&MsgTxt2) VALUE('CLLE Programs can report on and manage the +
+000119210223                                users on the system')
+000120210216                EndDo
+000121210216
+000122210216
+000123210216
+000124210216                WHEN       (&OPTION = '2' *OR &OPTION = '02') CALLSUBR OPTION2
+000125210216                WHEN       (&OPTION = '3' *OR &OPTION = '03') CALLSUBR OPTION3
+000126210216                WHEN       (&OPTION = '4' *OR &OPTION = '04') CALLSUBR OPTION4
+000127210216                WHEN       (&OPTION = '5' *OR &OPTION = '05') CALLSUBR OPTION5
+000128210216
+000129210216
+000130210216                OTHERWISE  CHGVAR &IN30 '1'
+000131210216
+000132210216                ENDSELECT
+000133210223                SELECT
+000134210223                   WHEN       (&IN21 = '1')   CALL QUSCMDLN
+000135210225
+000136210223                ENDSELECT
+000137210216                SNDRCVF
+000138210216                CALLSUBR   INITIALIZE
+000139210216             ENDDO
+000140210216
+000141210216             SUBR       INITIALIZE
+000142210216
+000143210216                CHGVAR     &IN30  '0'
+000144210216                CHGVAR     &MSGTXT ' '
+000145210216             ENDSUBR
+000146210216
+000147210216
+000148210216             SUBR       OPTION2
+000149210223                CALL       COVIDRPGLE
+000150210223                CHGVAR     VAR(&MsgTxt1) VALUE('My COVID RPGLE program was run')
+000151210223             ENDSUBR
+000152210216             SUBR       OPTION3
+000153210223                RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&MAX)
+000154210225                CHGVAR     VAR(&MSGTXT1) VALUE('Maximum invalid signons allowed: ' *BCAT +
+000155210225                             (&MAX) *BCAT '(tries)')
+000156210225                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can report on the system and +
+000157210225                             manage system wide settings')
+000158210223
+000159210216             ENDSUBR
+000160210216             SUBR       OPTION4
+000161210225                CHGVAR     &MSGTXT  ('Option 4')
+000162210223                RTVUSRPRF  RTNUSRPRF(&RTNUSRPRF) PRVSIGN(&PRVSIGN)
+000163210225                CHGVAR     &DATE (%SST(&PRVSIGN 4 2) *CAT '/' *CAT %SST(&PRVSIGN 6 2) *CAT '/' +
+000164210225                             *CAT %SST(&PRVSIGN 2 2))
+000165210223
+000166210225                ChgVar     &TIME (%SST(&PRVSIGN 8 2) *CAT ':' *CAT %SST(&PRVSIGN 10 2) *CAT +
+000167210225                             ':' *CAT %SST(&PRVSIGN 12 2) )
+000168210225                ChgVar     &MSGTXT1  ('Previous sign on for user ' *bcat &RTNUSRPRF *bcat ' +
+000169210225                             was on ' *CAT &DATE *BCAT &TIME)
+000170210223
+000171210223                ChgVar     VAR(&MSGTXT2) VALUE('CLLE Programs can report on and manage the +
+000172210223                             users on the system')
+000173210216             ENDSUBR
+000174210223
+000175210216             SUBR       OPTION5
+000176210223
+000177210223                RTVOBJD    OBJ(QSYS/QCMD) OBJTYPE(*PGM) SYSLVL(&SYSLVL)
+000178210223                RTVOBJD    OBJ(QSYS/QCMD) OBJTYPE(*PGM) SYSLVL(&SYSLVL)
+000179210223                CHGVAR     &MSGTXT1 ('The system level of the operating system is ' *CAT +
+000180210223                             &SYSLVL)
+000181210223                CHGVAR     &MSGTXT2 ('CLLE Programs can report on system information')
+000182210223
+000183210216             ENDSUBR

@@ -1,0 +1,62 @@
+000100210421     A          R RECORD1
+000101210421     A                                  2 65DATE
+000102210421     A                                      EDTCDE(Y)
+000103210421     A                                  2 22'EMPLOYEE INFORMATION'
+000104210421     A                                  2  2USER
+000105210421     A                                  4  3'ENTER EMPLOYEE NUMBER'
+000106210421     A            EMPNUMIN       9  0B  4 26EDTCDE(4)
+000107210421     A  99                                  DSPATR(PR)
+000108210421     A  51        ERRORMSG      36   O  4 42
+000109210421     A          R RECORD2                   OVERLAY
+000110210421     A                                      CF03(03)
+000111210421     A                                      CF06(06)
+000112210421     A                                  6 21'EMPLOYEE DATA'
+000113210421     A                                  8  4'FIRST NAME:'
+000114210421     A                                  9  4'LAST NAME:'
+000115210421     A                                 10  4'PHONE:'
+000116210421     A                                 14 19'LAST SHIFT WORKED'
+000117210421     A                                 16  4'SHIFT:'
+000118210421     A                                 17  4'HRS WORKED:'
+000119210421     A                                 18  4'PAY CLASS:'
+000120210421     A                                 20  6'F3 - EXIT'
+000121210421     A                                  9 44'CITY:'
+000122210421     A                                 10 44'ADDRESS:'
+000123210421     A            HRSWORKED R        O 17 18REFFLD(WORKWEEK1/HRSWORKED +
+000124210421     A                                      SENECAPAY/WORKWEEK1)
+000125210421     A            SHIFTTYPE     10   O 16 18
+000126210421     A            FIRSTNAME R        O  8 16REFFLD(EMPLOYEE/FIRSTNAME +
+000127210421     A                                      SENECAPAY/EMPLOYEE)
+000128210421     A            LASTNAME  R        O  9 16REFFLD(EMPLOYEE/LASTNAME +
+000129210421     A                                      SENECAPAY/EMPLOYEE)
+000130210421     A            PHONE     R        O 10 16REFFLD(EMPLOYEE/PHONE SENECAPAY/EMP-
+000131210421     A                                      LOYEE)
+000132210421     A            CITY      R        B  9 53REFFLD(EMPLOYEE/CITY SENECAPAY/EMPL-
+000133210421     A                                      OYEE)
+000134210421     A                                      CHECK(LC)
+000135210421     A            ADDRESS   R        B 10 53REFFLD(EMPLOYEE/ADDRESS SENECAPAY/E-
+000136210421     A                                      MPLOYEE)
+000137210421     A                                      CHECK(LC)
+000138210421     A                                 16 34'REGULAR PAY:'
+000139210421     A                                 17 34'OVERTIME PAY:'
+000140210421     A            OVRPAY         9Y 2O 17 49EDTCDE(1 $)
+000141210421     A            SHFTPAY        9Y 2O 18 49EDTCDE(1 $)
+000142210421     A                                 18 34'SHIFT PAY:'
+000143210421     A            YTDPAY    R        O 12 16REFFLD(EMPLOYEE/YTDPAY SENECAPAY/EM-
+000144210421     A                                      PLOYEE)
+000145210421     A                                      EDTCDE(1 $)
+000146210421     A                                 20 20'F6 - UPDATE EMPLOYEE RECORD'
+000147210421     A            PAYGRADE  R        B 18 18REFFLD(EMPLOYEE/PAYGRADE +
+000148210421     A                                      SENECAPAY/EMPLOYEE)
+000149210421     A                                      VALUES('1' '2' '3' '4')
+000150210421     A            REGPAY         9Y 2  16 49EDTCDE(1 $)
+000151210421     A                                 12  4'YTD PAY'
+000152210421     A*%%RS+<record-sequences>
+000153210421     A*%%RS+ <sequence name="RECORD1">
+000154210421     A*%%RS+  <device type="display" width="80" height="24" />
+000155210421     A*%%RS+  <record-write record-format="RECORD1" />
+000156210421     A*%%RS+ </sequence>
+000157210421     A*%%RS+ <sequence name="RECORD2">
+000158210421     A*%%RS+  <device type="display" width="80" height="24" />
+000159210421     A*%%RS+  <record-write record-format="RECORD2" />
+000160210421     A*%%RS+ </sequence>
+000161210421     A*%%RS </record-sequences>
